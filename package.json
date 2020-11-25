@@ -18,6 +18,13 @@
   },
   "homepage": "https://github.com/vmotta8/simple-clean-api#readme",
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.8.2",
+    "@typescript-eslint/parser": "^4.8.2",
+    "eslint": "^7.14.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
     "express": "^4.17.1",
     "git-commit-msg-linter": "^3.0.0",
     "ts-node-dev": "^1.0.0",

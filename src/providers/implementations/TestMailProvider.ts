@@ -1,14 +1,12 @@
+/* eslint-disable no-unreachable */
 import { IMailProvider, IMessage } from '../IMailProvider'
 
 export class TestMailProvider implements IMailProvider {
-  async sendMail (message: IMessage): Promise<void> {
-    setTimeout(() => {
-      console.log({
-        to: message.to,
-        from: message.from,
-        subject: message.subject,
-        html: message.body
-      })
-    }, 2000)
+  async sendMail (message: IMessage): Promise<number> {
+    try {
+      return 1
+    } catch (err) {
+      return 0
+    }
   }
 }

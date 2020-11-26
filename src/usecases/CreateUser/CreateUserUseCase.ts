@@ -8,8 +8,6 @@ import { IUsersRepository } from '../../repositories/IUsersRepository'
 import { ICreateUserRequestDTO } from './CreateUserDTO'
 import envs from '../../configs/envs.config'
 
-const secretMD5 = envs.SECRET_MD5
-
 export class CreateUserUseCase {
   constructor (
     private usersRepository: IUsersRepository,
@@ -47,7 +45,7 @@ export class CreateUserUseCase {
       body: '<p>Você já pode fazer login em nossa plataforma.</p>'
     })
 
-    const token = jwt.sign({ id: user.id }, secretMD5, { expiresIn: '1d' })
+    const token = jwt.sign({ id: user.id }, envs.SECRET_MD5, { expiresIn: '1d' })
     user.password = ''
     return { user, token }
   }

@@ -1,9 +1,6 @@
 import { Request, Response, NextFunction } from 'express'
 import jwt from 'jsonwebtoken'
-
 import envs from '../configs/envs.config'
-
-const secretMD5 = envs.SECRET_MD5!
 
 interface TokenPayload {
   id: string
@@ -27,7 +24,7 @@ export default function AuthMiddleware (req: Request, res: Response, next: NextF
   const token = authorization.replace('Bearer', '').trim()
 
   try {
-    const data = jwt.verify(token, secretMD5)
+    const data = jwt.verify(token, envs.SECRET_MD5)
 
     const { id } = data as TokenPayload
 

@@ -18,6 +18,5 @@ export class TestPixInformationRepository implements IPixInformationRepository {
 
   async save (pixInformation: PixInformation): Promise<void> {
     this.AllPixInformation.push(pixInformation)
-    console.log(this.AllPixInformation)
   }
 }

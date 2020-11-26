@@ -22,6 +22,10 @@ export class CreateUserUseCase {
       throw new Error('User already exists.')
     }
 
+    if ((data.name).length < 1) {
+      throw new Error('Invalid name.')
+    }
+
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     if (!re.test(data.email)) {
       throw new Error('Invalid email.')

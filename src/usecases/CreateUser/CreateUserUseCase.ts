@@ -23,10 +23,6 @@ export class CreateUserUseCase {
       throw new Error('Invalid name.')
     }
 
-    if ((data.password).length !== ((data.password).replace(/\s/g, '')).length || (data.password).length < 6) {
-      throw new Error('Invalid password.')
-    }
-
     await this.usersRepository.save(user)
 
     await this.mailProvider.sendMail({

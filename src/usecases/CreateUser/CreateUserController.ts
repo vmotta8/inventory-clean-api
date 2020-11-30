@@ -1,5 +1,6 @@
 /* eslint-disable no-useless-constructor */
 import { Request, Response } from 'express'
+import { jwtHelper } from '../helpers/jwtHelper'
 import { CreateUserUseCase } from './CreateUserUseCase'
 
 export class CreateUserController {
@@ -17,7 +18,9 @@ export class CreateUserController {
         password
       })
 
-      return response.status(201).json(data)
+      const token = jwtHelper.generateToken(data.user.id)
+
+      return response.status(201).json({ user: data.user, token })
     } catch (err) {
       return response.status(400).json({ message: err.message || 'Unexpected error.' })
     }

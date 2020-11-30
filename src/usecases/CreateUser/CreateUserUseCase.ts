@@ -1,11 +1,9 @@
 /* eslint-disable no-useless-escape */
 /* eslint-disable no-useless-constructor */
-import jwt from 'jsonwebtoken'
 import { User } from '../../entities/User'
 import { IMailProvider } from '../../providers/IMailProvider'
 import { IUsersRepository } from '../../repositories/IUsersRepository'
 import { ICreateUserRequestDTO } from './CreateUserDTO'
-import envs from '../../configs/envs.config'
 
 export class CreateUserUseCase {
   constructor (
@@ -44,8 +42,7 @@ export class CreateUserUseCase {
       body: '<p>Você já pode fazer login em nossa plataforma.</p>'
     })
 
-    const token = jwt.sign({ id: user.id }, envs.SECRET_MD5, { expiresIn: '1d' })
     user.password = ''
-    return { user, token }
+    return { user }
   }
 }

@@ -1,6 +1,6 @@
 /* eslint-disable no-useless-constructor */
 import { Request, Response } from 'express'
-import { RegisterPixInformationUseCase } from './RegisterPixInformationUseCase'
+import { RegisterPixInformationUseCase } from '../usecases/RegisterPixInformation/RegisterPixInformationUseCase'
 
 export class RegisterPixInformationController {
   constructor (

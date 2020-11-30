@@ -1,7 +1,7 @@
 /* eslint-disable no-useless-constructor */
 import { Request, Response } from 'express'
-import { jwtHelper } from '../helpers/jwtHelper'
-import { CreateUserUseCase } from './CreateUserUseCase'
+import { jwtHelper } from './helpers/jwtHelper'
+import { CreateUserUseCase } from '../usecases/CreateUser/CreateUserUseCase'
 
 export class CreateUserController {
   constructor (

@@ -1,7 +1,7 @@
 import { TestUsersRepository } from '../../repositories/implementations/TestUsersRepository'
 import { TestMailProvider } from '../../providers/implementations/TestMailProvider'
 import { CreateUserUseCase } from './CreateUserUseCase'
-import { CreateUserController } from './CreateUserController'
+import { CreateUserController } from '../../controllers/CreateUserController'
 
 const testUsersRepository = new TestUsersRepository()
 const testMailProvider = new TestMailProvider()

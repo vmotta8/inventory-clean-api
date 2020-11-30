@@ -1,6 +1,6 @@
 import { TestPixInformationRepository } from '../../repositories/implementations/TestPixInformationRepository'
 import { RegisterPixInformationUseCase } from './RegisterPixInformationUseCase'
-import { RegisterPixInformationController } from './RegisterPixInformationController'
+import { RegisterPixInformationController } from '../../controllers/RegisterPixInformationController'
 
 const testPixInformationRepository = new TestPixInformationRepository()
 

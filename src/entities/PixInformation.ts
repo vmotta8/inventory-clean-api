@@ -1,4 +1,4 @@
-import { uuid } from 'uuidv4'
+import { uuidHelper } from './helpers/uuidHelper'
 
 export class PixInformation {
   public readonly id: string;
@@ -8,11 +8,8 @@ export class PixInformation {
   public city: string;
   public userId: string;
 
-  constructor (props: Omit<PixInformation, 'id'>, id?: string) {
+  constructor (props: Omit<PixInformation, 'id'>) {
     Object.assign(this, props)
-
-    if (!id) {
-      this.id = uuid()
-    }
+    this.id = uuidHelper.create()
   }
 }

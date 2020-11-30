@@ -7,11 +7,8 @@ export class User {
   public email: string;
   public password: string;
 
-  constructor (props: Omit<User, 'id'>, id?: string) {
+  constructor (props: Omit<User, 'id'>) {
     Object.assign(this, props)
-
-    if (!id) {
-      this.id = uuidHelper.create()
-    }
+    this.id = uuidHelper.create()
   }
 }

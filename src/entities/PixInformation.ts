@@ -9,7 +9,7 @@ export class PixInformation {
   public userId: string;
 
   constructor (props: Omit<PixInformation, 'id'>) {
-    Object.assign(this, props)
     this.id = uuidHelper.create()
+    Object.assign(this, props)
   }
 }

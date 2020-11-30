@@ -16,6 +16,12 @@ export class TestPixInformationRepository implements IPixInformationRepository {
     return pixInformation
   }
 
+  async findById (id: string): Promise<PixInformation> {
+    const pixInformation = this.AllPixInformation.find(information => information.id === id)
+
+    return pixInformation
+  }
+
   async save (pixInformation: PixInformation): Promise<void> {
     this.AllPixInformation.push(pixInformation)
   }

@@ -21,9 +21,9 @@ describe('Create user use case', () => {
     try {
       await registerPixInformationUseCase.execute({
         key: '123456',
-        name: 'Vinicius2',
+        name: 'Vinicius',
         city: 'São Paulo',
-        userId: '123-4562'
+        userId: '123456'
       })
     } catch (err) {
       expect(err.message).toBe('Key already exists.')
@@ -33,8 +33,8 @@ describe('Create user use case', () => {
   it('should return a error because user id already exists', async () => {
     try {
       await registerPixInformationUseCase.execute({
-        key: '1234562',
-        name: 'Vinicius2',
+        key: '123-456',
+        name: 'Vinicius',
         city: 'São Paulo',
         userId: '123-456'
       })

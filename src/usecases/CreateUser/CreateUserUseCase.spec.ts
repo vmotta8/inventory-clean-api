@@ -30,40 +30,4 @@ describe('Create user use case', () => {
       expect(err.message).toBe('User already exists.')
     }
   })
-
-  it('should return a error because name is invalid', async () => {
-    try {
-      await createUserUseCase.execute({
-        name: '',
-        email: 'vinicius1@email.com',
-        password: '123456'
-      })
-    } catch (err) {
-      expect(err.message).toBe('Invalid name.')
-    }
-  })
-
-  it('should return a error because email is invalid', async () => {
-    try {
-      await createUserUseCase.execute({
-        name: 'Vinicius',
-        email: 'vinicius2@emailcom',
-        password: '123456'
-      })
-    } catch (err) {
-      expect(err.message).toBe('Invalid email.')
-    }
-  })
-
-  it('should return a error because password is invalid', async () => {
-    try {
-      await createUserUseCase.execute({
-        name: 'Vinicius',
-        email: 'vinicius3@email.com',
-        password: '123 456'
-      })
-    } catch (err) {
-      expect(err.message).toBe('Invalid password.')
-    }
-  })
 })

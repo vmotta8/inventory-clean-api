@@ -19,10 +19,6 @@ export class CreateUserUseCase {
       throw new Error('User already exists.')
     }
 
-    if ((data.name).length < 1) {
-      throw new Error('Invalid name.')
-    }
-
     await this.usersRepository.save(user)
 
     await this.mailProvider.sendMail({

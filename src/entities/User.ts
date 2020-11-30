@@ -2,6 +2,7 @@ import { uuidHelper } from './helpers/uuidHelper'
 import { bcryptHelper } from './helpers/bcryptHelper'
 import { emailValidator } from './validators/emailValidator'
 import { passwordValidator } from './validators/passwordValidator'
+import { nameValidator } from './validators/nameValidator'
 
 export class User {
   public readonly id: string;
@@ -11,9 +12,13 @@ export class User {
   public password: string;
 
   constructor (props: Omit<User, 'id'>) {
-    this.name = props.name
-
     this.id = uuidHelper.create()
+
+    if (nameValidator(props.name)) {
+      this.name = props.name
+    } else {
+      throw new Error('Invalid name.')
+    }
 
     if (emailValidator(props.email)) {
       this.email = props.email

@@ -1,4 +1,3 @@
-/* eslint-disable no-useless-escape */
 /* eslint-disable no-useless-constructor */
 import { User } from '../../entities/User'
 import { IMailProvider } from '../../providers/IMailProvider'
@@ -17,6 +16,11 @@ export class CreateUserUseCase {
     const userAlreadyExists = await this.usersRepository.findByEmail(data.email)
     if (userAlreadyExists) {
       throw new Error('User already exists.')
+    }
+
+    const idAlreadyExists = await this.usersRepository.findById(user.id)
+    if (idAlreadyExists) {
+      throw new Error('Id already exists.')
     }
 
     await this.usersRepository.save(user)

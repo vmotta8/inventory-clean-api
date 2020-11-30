@@ -1,6 +1,5 @@
 /* eslint-disable no-useless-escape */
 /* eslint-disable no-useless-constructor */
-import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import { User } from '../../entities/User'
 import { IMailProvider } from '../../providers/IMailProvider'
@@ -15,6 +14,9 @@ export class CreateUserUseCase {
   ) {}
 
   async execute (data: ICreateUserRequestDTO) {
+    const user = new User(data)
+    console.log(user)
+
     const userAlreadyExists = await this.usersRepository.findByEmail(data.email)
     if (userAlreadyExists) {
       throw new Error('User already exists.')
@@ -32,9 +34,6 @@ export class CreateUserUseCase {
     if ((data.password).length !== ((data.password).replace(/\s/g, '')).length || (data.password).length < 6) {
       throw new Error('Invalid password.')
     }
-
-    data.password = bcrypt.hashSync(data.password, 10)
-    const user = new User(data)
 
     await this.usersRepository.save(user)
 

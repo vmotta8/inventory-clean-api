@@ -26,7 +26,11 @@ export class TestUsersRepository implements IUsersRepository {
       this.users.push(newUser)
 
       const index = this.users.findIndex(user => user.email === email)
-      this.users[index].password = password
+      if (index === -1) {
+        return false
+      } else {
+        this.users[index].password = password
+      }
 
       return true
     } catch {

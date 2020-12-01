@@ -11,11 +11,11 @@ export class ForgotPasswordController {
     const { email } = request.body
 
     try {
-      const data = await this.forgotPasswordUseCase.execute({
+      await this.forgotPasswordUseCase.execute({
         email
       })
 
-      return response.status(201).json(data)
+      return response.status(201)
     } catch (err) {
       return response.status(400).json({ message: err.message || 'Unexpected error.' })
     }

@@ -11,9 +11,12 @@ export class ForgotPasswordUseCase {
 
   async execute (data: IForgotPasswordDTO) {
     const newPassword = Math.random().toString(36).slice(2)
-    const update = await this.usersRepository.updatePasswordByEmail(data.email, newPassword)
 
-    if (!update) {
+    const emailExists = await this.usersRepository.findByEmail(data.email)
+
+    if (emailExists) {
+      await this.usersRepository.updateByEmail(data.email, 'password', newPassword)
+    } else {
       throw new Error('User does not exist.')
     }
 
@@ -27,7 +30,5 @@ export class ForgotPasswordUseCase {
     } catch {
       throw new Error('Error sending email, try again.')
     }
-
-    return { message: 'A new password was sent in your email, check the spam box.' }
   }
 }

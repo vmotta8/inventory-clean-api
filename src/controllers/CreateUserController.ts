@@ -12,15 +12,15 @@ export class CreateUserController {
     const { name, email, password } = request.body
 
     try {
-      const data = await this.createUserUseCase.execute({
+      const user = await this.createUserUseCase.execute({
         name,
         email,
         password
       })
 
-      const token = jwtHelper.generateToken(data.user.id)
+      const token = jwtHelper.generateToken(user.id)
 
-      return response.status(201).json({ user: data.user, token })
+      return response.status(201).json({ user, token })
     } catch (err) {
       return response.status(400).json({ message: err.message || 'Unexpected error.' })
     }

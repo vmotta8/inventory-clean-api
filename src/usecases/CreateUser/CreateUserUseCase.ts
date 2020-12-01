@@ -33,6 +33,6 @@ export class CreateUserUseCase {
     })
 
     user.password = ''
-    return { user }
+    return user
   }
 }

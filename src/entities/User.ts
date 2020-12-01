@@ -1,5 +1,4 @@
 import { uuidHelper } from './helpers/uuidHelper'
-import { bcryptHelper } from './helpers/bcryptHelper'
 import { emailValidator } from './validators/emailValidator'
 import { passwordValidator } from './validators/passwordValidator'
 import { nameValidator } from './validators/nameValidator'
@@ -27,7 +26,7 @@ export class User {
     }
 
     if (passwordValidator(props.password)) {
-      this.password = bcryptHelper.generateHash(props.password)
+      this.password = props.password
     } else {
       throw new Error('Invalid password.')
     }

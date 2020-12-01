@@ -1,6 +1,7 @@
 /* eslint-disable no-useless-constructor */
 import { IMailProvider } from '../../providers/IMailProvider'
 import { IUsersRepository } from '../../repositories/IUsersRepository'
+import { bcryptHelper } from '../__helpers__/bcryptHelper'
 import { IForgotPasswordDTO } from './ForgotPasswordDTO'
 
 export class ForgotPasswordUseCase {
@@ -10,12 +11,13 @@ export class ForgotPasswordUseCase {
   ) {}
 
   async execute (data: IForgotPasswordDTO) {
-    const newPassword = Math.random().toString(36).slice(2)
+    const newPassword = (Math.random().toString(36).slice(2))
+    const newPasswordHash = bcryptHelper.generateHash(newPassword)
 
     const emailExists = await this.usersRepository.findByEmail(data.email)
 
     if (emailExists) {
-      await this.usersRepository.updateByEmail(data.email, 'password', newPassword)
+      await this.usersRepository.updateByEmail(data.email, 'password', newPasswordHash)
     } else {
       throw new Error('User does not exist.')
     }

@@ -1,11 +1,11 @@
-import { TestPixInformationRepository } from '../../repositories/implementations/TestPixInformationRepository'
+import { MongoPixInformationRepository } from '../../repositories/implementations/MongoPixInformationRepository'
 import { RegisterPixInformationUseCase } from './RegisterPixInformationUseCase'
 import { RegisterPixInformationController } from '../../controllers/RegisterPixInformationController'
 
-const testPixInformationRepository = new TestPixInformationRepository()
+const mongoPixInformationRepository = new MongoPixInformationRepository()
 
 const registerPixInformationUseCase = new RegisterPixInformationUseCase(
-  testPixInformationRepository
+  mongoPixInformationRepository
 )
 
 const registerPixInformationController = new RegisterPixInformationController(

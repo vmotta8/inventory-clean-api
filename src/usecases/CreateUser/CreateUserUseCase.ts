@@ -2,8 +2,8 @@
 import { User } from '../../entities/User'
 import { IMailProvider } from '../../providers/IMailProvider'
 import { IUsersRepository } from '../../repositories/IUsersRepository'
-import { bcryptHelper } from '../__helpers__/bcryptHelper'
-import { jwtHelper } from '../__helpers__/jwtHelper'
+import { bcryptHelper } from '../../helpers/bcryptHelper'
+import { jwtHelper } from '../../helpers/jwtHelper'
 import { ICreateUserRequestDTO } from './CreateUserDTO'
 
 export class CreateUserUseCase {

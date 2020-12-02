@@ -1,4 +1,4 @@
-import { uuidHelper } from './helpers/uuidHelper'
+import { uuidHelper } from '../helpers/uuidHelper'
 import { emailValidator } from './validators/emailValidator'
 import { passwordValidator } from './validators/passwordValidator'
 import { nameValidator } from './validators/nameValidator'

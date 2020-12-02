@@ -1,4 +1,4 @@
-import { uuidHelper } from './helpers/uuidHelper'
+import { uuidHelper } from '../helpers/uuidHelper'
 
 export class PixInformation {
   public readonly id: string;

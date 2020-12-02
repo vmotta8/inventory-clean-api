@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken'
-import envs from '../../configs/envs.config'
+import envs from '../configs/envs.config'
 
 export const jwtHelper = {
   generateToken (id: string): string {

@@ -1,7 +1,7 @@
 /* eslint-disable no-useless-constructor */
 import { IMailProvider } from '../../providers/IMailProvider'
 import { IUsersRepository } from '../../repositories/IUsersRepository'
-import { bcryptHelper } from '../__helpers__/bcryptHelper'
+import { bcryptHelper } from '../../helpers/bcryptHelper'
 import { IForgotPasswordDTO } from './ForgotPasswordDTO'
 
 export class ForgotPasswordUseCase {

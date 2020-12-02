@@ -6,5 +6,12 @@ export const jwtHelper = {
     const token = jwt.sign({ id: id }, envs.SECRET_MD5, { expiresIn: '1d' })
 
     return token
+  },
+
+  verifyToken (token: string): object | string {
+    const decoded = jwt.verify(token, envs.SECRET_MD5)
+    console.log(decoded)
+
+    return decoded
   }
 }

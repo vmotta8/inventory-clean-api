@@ -8,9 +8,11 @@ export const jwtHelper = {
     return token
   },
 
-  verifyToken (token: string): object | string {
+  verifyToken (token: string): object {
     const decoded = jwt.verify(token, envs.SECRET_MD5)
-    console.log(decoded)
+    if (typeof decoded !== 'object') {
+      throw new Error('Token verification error')
+    }
 
     return decoded
   }

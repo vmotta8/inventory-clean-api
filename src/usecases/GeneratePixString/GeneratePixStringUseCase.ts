@@ -27,8 +27,6 @@ export class GeneratePixStringUseCase {
 
     const pixString = `${StaticPixConfig.PayloadFormatIndicator}${StaticPixConfig.PointofInitiationMethod}26${MerchantAccountInformationLength}${StaticPixConfig.MerchantAccountInformation}01${userKeyLength}${userStaticPixInformation.key}${StaticPixConfig.MerchantCategoryCode}${StaticPixConfig.TransactionCurrency}54${priceLength}${price}${StaticPixConfig.CountryCode}59${beneficiaryNameLength}${userStaticPixInformation.name}60${cityLength}${userStaticPixInformation.city}6304`
 
-    console.log(pixString)
-
     const pixCrc = crc16Helper.generate(pixString)
 
     return pixString + pixCrc

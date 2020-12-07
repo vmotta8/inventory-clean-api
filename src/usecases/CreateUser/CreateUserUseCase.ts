@@ -4,6 +4,7 @@ import { IMailProvider } from '../../providers/IMailProvider'
 import { IUsersRepository } from '../../repositories/IUsersRepository'
 import { bcryptHelper } from '../../helpers/bcryptHelper'
 import { ICreateUserRequestDTO } from './CreateUserDTO'
+import envs from '../../configs/envs.config'
 
 export class CreateUserUseCase {
   constructor (
@@ -30,7 +31,7 @@ export class CreateUserUseCase {
 
     await this.mailProvider.sendMail({
       to: data.email,
-      from: 'equipe@email.com',
+      from: envs.EMAIL,
       subject: 'Seja bem-vindo à plataforma',
       body: '<p>Você já pode fazer login em nossa plataforma.</p>'
     })

@@ -3,6 +3,7 @@ import { IMailProvider } from '../../providers/IMailProvider'
 import { IUsersRepository } from '../../repositories/IUsersRepository'
 import { bcryptHelper } from '../../helpers/bcryptHelper'
 import { IForgotPasswordDTO } from './ForgotPasswordDTO'
+import envs from '../../configs/envs.config'
 
 export class ForgotPasswordUseCase {
   constructor (
@@ -25,7 +26,7 @@ export class ForgotPasswordUseCase {
     try {
       await this.mailProvider.sendMail({
         to: data.email,
-        from: 'equipe@email.com',
+        from: envs.EMAIL,
         subject: 'Solicitação de nova senha na plataforma',
         body: `<p>Sua nova senha é: ${newPassword}.</p>`
       })

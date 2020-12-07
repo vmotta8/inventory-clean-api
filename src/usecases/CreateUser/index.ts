@@ -1,14 +1,14 @@
 import { MongoUsersRepository } from '../../repositories/implementations/MongoUsersRepository'
-import { TestMailProvider } from '../../providers/implementations/TestMailProvider'
+import { SESMailProvider } from '../../providers/implementations/SESMailProvider'
 import { CreateUserUseCase } from './CreateUserUseCase'
 import { CreateUserController } from '../../controllers/CreateUserController'
 
 const mongoUsersRepository = new MongoUsersRepository()
-const testMailProvider = new TestMailProvider()
+const sesMailProvider = new SESMailProvider()
 
 const createUserUseCase = new CreateUserUseCase(
   mongoUsersRepository,
-  testMailProvider
+  sesMailProvider
 )
 
 const createUserController = new CreateUserController(

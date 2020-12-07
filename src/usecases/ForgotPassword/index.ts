@@ -1,14 +1,14 @@
 import { MongoUsersRepository } from '../../repositories/implementations/MongoUsersRepository'
-import { TestMailProvider } from '../../providers/implementations/TestMailProvider'
+import { SESMailProvider } from '../../providers/implementations/SESMailProvider'
 import { ForgotPasswordUseCase } from './ForgotPasswordUseCase'
 import { ForgotPasswordController } from '../../controllers/ForgotPasswordController'
 
 const mongoUsersRepository = new MongoUsersRepository()
-const testMailProvider = new TestMailProvider()
+const sesMailProvider = new SESMailProvider()
 
 const forgotPasswordUseCase = new ForgotPasswordUseCase(
   mongoUsersRepository,
-  testMailProvider
+  sesMailProvider
 )
 
 const forgotPasswordController = new ForgotPasswordController(

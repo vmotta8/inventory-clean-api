@@ -30,6 +30,12 @@ MONGO_URL=
       password: '123456'
     }```
 
+  - ```/users/authentication``` GET
+    - Route for user authentication: ```{
+      email: 'myemail@email.com',
+      password: '123456'
+    }```
+
   - ```/users/forgot_password``` POST
     - Route to send an email with a new password: ```{
       email: 'myemail@email.com'
@@ -43,8 +49,8 @@ MONGO_URL=
       city: 'my city'
       }```
 
-  - ```/pix/generate_string```
+  - ```/pix/generate_string``` GET
     - Bearer Token will be required
     - Route to generate a pix static string for use in qr code, the string will be generated according to the users pix data and was made for purchases with BRL: ```{
-      price: 15.5
+      value: 15.5
       }```

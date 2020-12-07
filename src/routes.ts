@@ -4,11 +4,16 @@ import { createUserController } from './usecases/CreateUser'
 import { registerPixInformationController } from './usecases/RegisterPixInformation'
 import { forgotPasswordController } from './usecases/ForgotPassword'
 import { generatePixStringController } from './usecases/GeneratePixString'
+import { authenticationController } from './usecases/Authentication'
 
 const router = Router()
 
 router.post('/users/register', (req, res) => {
   return createUserController.handle(req, res)
+})
+
+router.get('/users/authentication', (req, res) => {
+  return authenticationController.handle(req, res)
 })
 
 router.post('/users/forgot_password', (req, res) => {

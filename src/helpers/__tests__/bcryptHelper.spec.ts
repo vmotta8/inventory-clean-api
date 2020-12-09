@@ -16,4 +16,11 @@ describe('bcrypt helper', () => {
     expect(typeof encrypted).toBe('string')
     expect(equals).toBe(false)
   })
+
+  it('should return a boolean when comparing hash and password', async () => {
+    const password = '123456'
+    const encrypted = bcryptHelper.generateHash(password)
+    const equals = await bcryptHelper.compare(password, encrypted)
+    expect(equals).toBe(true)
+  })
 })

@@ -2,6 +2,7 @@
 import { IUsersRepository } from '../../repositories/IUsersRepository'
 import { bcryptHelper } from '../../helpers/bcryptHelper'
 import { IAuthenticationDTO } from './AuthenticationDTO'
+import { jwtHelper } from '../../helpers/jwtHelper'
 
 export class AuthenticationUseCase {
   constructor (
@@ -21,6 +22,8 @@ export class AuthenticationUseCase {
     }
 
     delete user.password
-    return user
+    const token = jwtHelper.generateToken(user.id)
+
+    return { user, token }
   }
 }

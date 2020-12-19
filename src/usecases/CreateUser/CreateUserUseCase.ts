@@ -4,6 +4,7 @@ import { IMailProvider } from '../../providers/IMailProvider'
 import { IUsersRepository } from '../../repositories/IUsersRepository'
 import { bcryptHelper } from '../../helpers/bcryptHelper'
 import { ICreateUserRequestDTO } from './CreateUserDTO'
+import { jwtHelper } from '../../helpers/jwtHelper'
 import envs from '../../configs/envs.config'
 
 export class CreateUserUseCase {
@@ -27,7 +28,6 @@ export class CreateUserUseCase {
     }
 
     await this.usersRepository.save(user)
-    delete user.password
 
     await this.mailProvider.sendMail({
       to: data.email,
@@ -36,6 +36,9 @@ export class CreateUserUseCase {
       body: '<p>Você já pode fazer login em nossa plataforma.</p>'
     })
 
-    return user
+    delete user.password
+    const token = jwtHelper.generateToken(user.id)
+
+    return { user, token }
   }
 }

@@ -1,35 +1,58 @@
 import { emailValidator } from '../emailValidator'
 
-describe('Email validator', () => {
-  it('should return true for a valid email', () => {
-    const email = 'vinicius@email.com'
-
-    const valid = emailValidator(email)
-
-    expect(valid).toBe(true)
+describe('email validation', () => {
+  it('should not accept null strings', () => {
+    const email = null
+    expect(emailValidator(email)).toBeFalsy()
   })
 
-  it('should return an error because email is invalid 1', () => {
-    const email = 'vinicius@emailcom'
-
-    const valid = emailValidator(email)
-
-    expect(valid).toBe(false)
+  it('should not accept undefined strings', () => {
+    const email: string = undefined
+    expect(emailValidator(email)).toBeFalsy()
   })
 
-  it('should return an error because email is invalid 2', () => {
-    const email = 'viniciusemail.com'
-
-    const valid = emailValidator(email)
-
-    expect(valid).toBe(false)
+  it('should not accept empty strings', () => {
+    const email: string = ''
+    expect(emailValidator(email)).toBeFalsy()
   })
 
-  it('should return an error because email is invalid 3', () => {
-    const email = 'vinicius'
+  it('should accept valid email', () => {
+    const email: string = 'myname@email.com'
+    expect(emailValidator(email)).toBeTruthy()
+  })
 
-    const valid = emailValidator(email)
+  it('should not accept local part larger than 64 chars', () => {
+    const email: string = 'l'.repeat(65) + '@email.com'
+    expect(emailValidator(email)).toBeFalsy()
+  })
 
-    expect(valid).toBe(false)
+  it('should not accept domain larger than 255 chars', () => {
+    const email: string = 'local@' + 'd'.repeat(260) + '.com'
+    expect(emailValidator(email)).toBeFalsy()
+  })
+
+  it('should not accept strings larger than 320 chars', () => {
+    const email: string = 'l'.repeat(64) + '@' + 'c'.repeat(128) + '.' + 'd'.repeat(128)
+    expect(emailValidator(email)).toBeFalsy()
+  })
+
+  it('should not accept empty local part', () => {
+    const email: string = '@email.com'
+    expect(emailValidator(email)).toBeFalsy()
+  })
+
+  it('should not accept empty domain', () => {
+    const email: string = 'myname@'
+    expect(emailValidator(email)).toBeFalsy()
+  })
+
+  it('should not accept domain with a part larger than 63 chars', () => {
+    const email: string = 'myname@' + 'd'.repeat(64) + '.com'
+    expect(emailValidator(email)).toBeFalsy()
+  })
+
+  it('should not accept empty local part with invalid char', () => {
+    const email: string = 'my name@email.com'
+    expect(emailValidator(email)).toBeFalsy()
   })
 })

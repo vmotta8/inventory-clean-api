@@ -12,4 +12,4 @@ const registerPixInformationController = new RegisterPixInformationController(
   registerPixInformationUseCase
 )
 
-export { registerPixInformationController }
+export { registerPixInformationUseCase, registerPixInformationController }

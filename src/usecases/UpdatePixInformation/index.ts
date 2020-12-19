@@ -12,4 +12,4 @@ const updatePixInformationController = new UpdatePixInformationController(
   updatePixInformationUseCase
 )
 
-export { updatePixInformationController }
+export { updatePixInformationUseCase, updatePixInformationController }

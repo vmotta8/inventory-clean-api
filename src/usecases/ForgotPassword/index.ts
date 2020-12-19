@@ -15,4 +15,4 @@ const forgotPasswordController = new ForgotPasswordController(
   forgotPasswordUseCase
 )
 
-export { forgotPasswordController }
+export { forgotPasswordUseCase, forgotPasswordController }

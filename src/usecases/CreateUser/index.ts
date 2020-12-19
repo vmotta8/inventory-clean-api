@@ -15,4 +15,4 @@ const createUserController = new CreateUserController(
   createUserUseCase
 )
 
-export { createUserController }
+export { createUserUseCase, createUserController }

@@ -12,4 +12,4 @@ const generatePixStringController = new GeneratePixStringController(
   generatePixStringUseCase
 )
 
-export { generatePixStringController }
+export { generatePixStringUseCase, generatePixStringController }

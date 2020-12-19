@@ -4,28 +4,35 @@ import { MongoHelper } from '../../database'
 
 export class MongoPixInformationRepository implements IPixInformationRepository {
   async findByUserId (userId: string): Promise<PixInformation> {
-    const userCollection = MongoHelper.getCollection('pixinformation')
-    const result = await userCollection.findOne({ userId: userId })
+    const pixCollection = MongoHelper.getCollection('pixinformation')
+    const result = await pixCollection.findOne({ userId: userId })
     return result
   }
 
   async findByKey (key: string): Promise<PixInformation> {
-    const userCollection = MongoHelper.getCollection('pixinformation')
-    const result = await userCollection.findOne({ key: key })
+    const pixCollection = MongoHelper.getCollection('pixinformation')
+    const result = await pixCollection.findOne({ key: key })
     return result
   }
 
   async findById (id: string): Promise<PixInformation> {
-    const userCollection = MongoHelper.getCollection('pixinformation')
-    const result = await userCollection.findOne({ id: id })
+    const pixCollection = MongoHelper.getCollection('pixinformation')
+    const result = await pixCollection.findOne({ id: id })
     return result
   }
 
   async save (pixInformation: PixInformation): Promise<void> {
-    const userCollection = MongoHelper.getCollection('pixinformation')
+    const pixCollection = MongoHelper.getCollection('pixinformation')
     const exists = await this.findByKey(pixInformation.key)
     if (!exists) {
-      await userCollection.insertOne(pixInformation)
+      await pixCollection.insertOne(pixInformation)
     }
+  }
+
+  async updateByUserId (userId: string, prop: string, data: string): Promise<void> {
+    const pixCollection = MongoHelper.getCollection('pixinformation')
+    const query = { userId: userId }
+    const update = { $set: { [prop]: data } }
+    await pixCollection.updateOne(query, update)
   }
 }

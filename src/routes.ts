@@ -5,6 +5,7 @@ import { registerPixInformationController } from './usecases/RegisterPixInformat
 import { forgotPasswordController } from './usecases/ForgotPassword'
 import { generatePixStringController } from './usecases/GeneratePixString'
 import { authenticationController } from './usecases/Authentication'
+import { updatePixInformationController } from './usecases/UpdatePixInformation'
 
 const router = Router()
 
@@ -22,6 +23,10 @@ router.post('/users/forgot_password', (req, res) => {
 
 router.post('/pix/register', AuthMiddleware, (req, res) => {
   return registerPixInformationController.handle(req, res)
+})
+
+router.post('/pix/update', AuthMiddleware, (req, res) => {
+  return updatePixInformationController.handle(req, res)
 })
 
 router.get('/pix/generate_string', AuthMiddleware, (req, res) => {

@@ -17,4 +17,16 @@ describe('Name validator', () => {
     const valid = nameValidator(name)
     expect(valid).toBe(false)
   })
+
+  it('should return true when name is valid 1', () => {
+    const name = 'My    Name'
+    const valid = nameValidator(name)
+    expect(valid).toBe(true)
+  })
+
+  it('should return true when name is valid 2', () => {
+    const name = 'My Name'
+    const valid = nameValidator(name)
+    expect(valid).toBe(true)
+  })
 })

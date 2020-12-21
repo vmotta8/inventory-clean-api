@@ -14,7 +14,7 @@ export class User {
     this.id = uuidHelper.create()
 
     if (nameValidator(props.name)) {
-      this.name = props.name
+      this.name = ((props.name).replace(/\s\s+/g, ' ')).trim()
     } else {
       throw new Error('Invalid name.')
     }

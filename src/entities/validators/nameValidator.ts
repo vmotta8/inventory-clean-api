@@ -3,7 +3,9 @@ export function nameValidator (name: string): boolean {
     return false
   }
 
-  if (name.trim().length < 2 || name.trim().length > 256) {
+  const formattedName = (name.replace(/\s\s+/g, ' ')).trim()
+
+  if (formattedName.length < 2 || formattedName.length > 256) {
     return false
   }
 

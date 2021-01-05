@@ -1,8 +1,9 @@
 import { MongoHelper } from '../../database'
 import { createUserUseCase } from './index'
+import envs from '../../configs/envs.config'
 
 beforeAll(async () => {
-  await MongoHelper.connect('mongodb://localhost:27017/inventory-control-test')
+  await MongoHelper.connect(envs.MONGO_URL_TEST)
   MongoHelper.clearCollection('users')
 
   await createUserUseCase.execute({

@@ -11,8 +11,8 @@ afterAll(async () => {
   await MongoHelper.disconnect()
 })
 
-describe('create user use case', () => {
-  it('user already exists', async () => {
+describe('forgot password use case', () => {
+  it('user does not exist', async () => {
     try {
       await forgotPasswordUseCase.execute({
         email: 'viniciusmotta8@gmail.com'

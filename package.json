@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "wtest": "jest --watch",
     "dev": "ts-node-dev --files --transpile-only --respawn --ignore-watch node-modules src/server.ts"
   },
   "repository": {

@@ -12,4 +12,4 @@ const authenticationController = new AuthenticationController(
   authenticationUseCase
 )
 
-export { authenticationController }
+export { authenticationController, authenticationUseCase }

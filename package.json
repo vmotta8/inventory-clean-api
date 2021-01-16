@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "wtest": "jest --watch",
+    "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
+    "test-unit": "npm test -- --watch -c jest-unit.config.js",
+    "test-integration": "npm test -- --watch -c jest-integration.config.js",
     "dev": "ts-node-dev --files --transpile-only --respawn --ignore-watch node-modules src/server.ts"
   },
   "repository": {

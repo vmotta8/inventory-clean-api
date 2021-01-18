@@ -49,6 +49,14 @@ MONGO_URL=
       city: 'my city'
       }```
 
+  - ```/pix/update``` POST
+    - Bearer Token will be required
+    - Route to update pix information: ```{
+      key: 'myemail@email.com',
+      name: 'my name',
+      city: 'my city'
+      }```
+
   - ```/pix/generate_string``` GET
     - Bearer Token will be required
     - Route to generate a pix static string for use in qr code, the string will be generated according to the users pix data and was made for purchases with BRL: ```{

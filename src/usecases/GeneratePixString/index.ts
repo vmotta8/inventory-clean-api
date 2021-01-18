@@ -12,4 +12,7 @@ const generatePixStringController = new GeneratePixStringController(
   generatePixStringUseCase
 )
 
-export { generatePixStringUseCase, generatePixStringController }
+const TESTGeneratePixStringUseCase = new GeneratePixStringUseCase(
+  mongoPixInformationRepository
+)
+export { generatePixStringController, TESTGeneratePixStringUseCase }

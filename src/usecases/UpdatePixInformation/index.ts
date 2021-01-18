@@ -12,4 +12,8 @@ const updatePixInformationController = new UpdatePixInformationController(
   updatePixInformationUseCase
 )
 
-export { updatePixInformationUseCase, updatePixInformationController }
+const TESTUpdatePixInformationUseCase = new UpdatePixInformationUseCase(
+  mongoPixInformationRepository
+)
+
+export { updatePixInformationController, TESTUpdatePixInformationUseCase }

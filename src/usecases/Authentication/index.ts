@@ -12,4 +12,8 @@ const authenticationController = new AuthenticationController(
   authenticationUseCase
 )
 
-export { authenticationController, authenticationUseCase }
+const TESTAuthenticationUseCase = new AuthenticationUseCase(
+  mongoUsersRepository
+)
+
+export { authenticationController, TESTAuthenticationUseCase }

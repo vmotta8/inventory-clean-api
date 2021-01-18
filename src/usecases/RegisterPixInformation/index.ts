@@ -12,4 +12,8 @@ const registerPixInformationController = new RegisterPixInformationController(
   registerPixInformationUseCase
 )
 
-export { registerPixInformationUseCase, registerPixInformationController }
+const TESTRegisterPixInformationUseCase = new RegisterPixInformationUseCase(
+  mongoPixInformationRepository
+)
+
+export { registerPixInformationController, TESTRegisterPixInformationUseCase }

@@ -1,12 +1,12 @@
 import { MongoHelper } from '../../database'
-import { registerPixInformationUseCase } from './index'
+import { TESTRegisterPixInformationUseCase } from './index'
 import envs from '../../configs/envs.config'
 
 beforeAll(async () => {
   await MongoHelper.connect(envs.MONGO_URL_TEST)
   MongoHelper.clearCollection('pixinformation')
 
-  await registerPixInformationUseCase.execute({
+  await TESTRegisterPixInformationUseCase.execute({
     name: 'Vinicius Motta',
     key: 'viniciusmotta8@gmail.com',
     city: 'Mogi Mirim',
@@ -21,7 +21,7 @@ afterAll(async () => {
 describe('register pix information use case', () => {
   it('key already exists', async () => {
     try {
-      await registerPixInformationUseCase.execute({
+      await TESTRegisterPixInformationUseCase.execute({
         name: 'Vinicius Motta',
         key: 'viniciusmotta8@gmail.com',
         city: 'Mogi Mirim',
@@ -34,7 +34,7 @@ describe('register pix information use case', () => {
 
   it('userId already exists', async () => {
     try {
-      await registerPixInformationUseCase.execute({
+      await TESTRegisterPixInformationUseCase.execute({
         name: 'Vinicius Motta',
         key: 'viniciusmotta8@email.com',
         city: 'Mogi Mirim',

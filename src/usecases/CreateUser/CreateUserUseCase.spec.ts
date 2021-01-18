@@ -1,12 +1,12 @@
 import { MongoHelper } from '../../database'
-import { createUserUseCase } from './index'
+import { TESTCreateUserUseCase } from './index'
 import envs from '../../configs/envs.config'
 
 beforeAll(async () => {
   await MongoHelper.connect(envs.MONGO_URL_TEST)
   MongoHelper.clearCollection('users')
 
-  await createUserUseCase.execute({
+  await TESTCreateUserUseCase.execute({
     name: 'Vinicius Motta',
     email: 'viniciusmotta8@gmail.com',
     password: '123456'
@@ -20,7 +20,7 @@ afterAll(async () => {
 describe('create user use case', () => {
   it('user already exists', async () => {
     try {
-      await createUserUseCase.execute({
+      await TESTCreateUserUseCase.execute({
         name: 'Vinicius Motta',
         email: 'viniciusmotta8@gmail.com',
         password: '123456'

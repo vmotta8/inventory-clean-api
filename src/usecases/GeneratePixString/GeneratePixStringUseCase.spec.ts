@@ -1,5 +1,5 @@
 import { MongoHelper } from '../../database'
-import { generatePixStringUseCase } from './index'
+import { TESTGeneratePixStringUseCase } from './index'
 import envs from '../../configs/envs.config'
 
 beforeAll(async () => {
@@ -14,7 +14,7 @@ afterAll(async () => {
 describe('generate pix string use case', () => {
   it('user did not register pix information', async () => {
     try {
-      await generatePixStringUseCase.execute({
+      await TESTGeneratePixStringUseCase.execute({
         value: 10.5,
         userId: '123456'
       })

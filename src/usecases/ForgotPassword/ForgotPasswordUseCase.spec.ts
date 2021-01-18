@@ -1,5 +1,5 @@
 import { MongoHelper } from '../../database'
-import { forgotPasswordUseCase } from './index'
+import { TESTForgotPasswordUseCase } from './index'
 import envs from '../../configs/envs.config'
 
 beforeAll(async () => {
@@ -14,7 +14,7 @@ afterAll(async () => {
 describe('forgot password use case', () => {
   it('user does not exist', async () => {
     try {
-      await forgotPasswordUseCase.execute({
+      await TESTForgotPasswordUseCase.execute({
         email: 'viniciusmotta8@gmail.com'
       })
     } catch (error) {

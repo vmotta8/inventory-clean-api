@@ -1,20 +1,20 @@
 import { MongoHelper } from '../../database'
-import { updatePixInformationUseCase } from './index'
-import { registerPixInformationUseCase } from '../RegisterPixInformation/index'
+import { TESTUpdatePixInformationUseCase } from './index'
+import { TESTRegisterPixInformationUseCase } from '../RegisterPixInformation/index'
 import envs from '../../configs/envs.config'
 
 beforeAll(async () => {
   await MongoHelper.connect(envs.MONGO_URL_TEST)
   MongoHelper.clearCollection('pixinformation')
 
-  await registerPixInformationUseCase.execute({
+  await TESTRegisterPixInformationUseCase.execute({
     name: 'Vinicius Motta',
     key: 'viniciusmotta8@gmail.com',
     city: 'Mogi Mirim',
     userId: '123456'
   })
 
-  await registerPixInformationUseCase.execute({
+  await TESTRegisterPixInformationUseCase.execute({
     name: 'User',
     key: 'user@email.com',
     city: 'Mogi Mirim',
@@ -29,7 +29,7 @@ afterAll(async () => {
 describe('update pix information use case', () => {
   it('user did not register pix information', async () => {
     try {
-      await updatePixInformationUseCase.execute({
+      await TESTUpdatePixInformationUseCase.execute({
         name: 'Other',
         key: 'other@email.com',
         city: 'Mogi Mirim',
@@ -42,7 +42,7 @@ describe('update pix information use case', () => {
 
   it('key already exists', async () => {
     try {
-      await updatePixInformationUseCase.execute({
+      await TESTUpdatePixInformationUseCase.execute({
         name: 'User',
         key: 'viniciusmotta8@gmail.com',
         city: 'Mogi Mirim',

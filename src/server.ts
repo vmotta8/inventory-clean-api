@@ -1,7 +1,7 @@
-import { MongoHelper } from './database'
+import { database } from './database/index'
 import { app } from './app'
 import envs from './configs/envs.config'
 
-MongoHelper.connect(envs.MONGO_URL)
+database.connect(envs.MONGO_URL)
 
 app.listen(3333)

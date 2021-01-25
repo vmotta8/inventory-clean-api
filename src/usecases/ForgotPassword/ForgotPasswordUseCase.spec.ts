@@ -1,14 +1,14 @@
-import { MongoHelper } from '../../database'
+import { database } from '../../database/index'
 import { TESTForgotPasswordUseCase } from './index'
 import envs from '../../configs/envs.config'
 
 beforeAll(async () => {
-  await MongoHelper.connect(envs.MONGO_URL_TEST)
-  MongoHelper.clearCollection('users')
+  await database.connect(envs.MONGO_URL_TEST)
+  database.clearCollection('users')
 })
 
 afterAll(async () => {
-  await MongoHelper.disconnect()
+  await database.disconnect()
 })
 
 describe('forgot password use case', () => {

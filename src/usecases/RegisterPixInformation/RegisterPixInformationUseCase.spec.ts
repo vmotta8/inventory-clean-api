@@ -1,10 +1,10 @@
-import { MongoHelper } from '../../database'
+import { database } from '../../database/index'
 import { TESTRegisterPixInformationUseCase } from './index'
 import envs from '../../configs/envs.config'
 
 beforeAll(async () => {
-  await MongoHelper.connect(envs.MONGO_URL_TEST)
-  MongoHelper.clearCollection('pixinformation')
+  await database.connect(envs.MONGO_URL_TEST)
+  database.clearCollection('pixinformation')
 
   await TESTRegisterPixInformationUseCase.execute({
     name: 'Vinicius Motta',
@@ -15,7 +15,7 @@ beforeAll(async () => {
 })
 
 afterAll(async () => {
-  await MongoHelper.disconnect()
+  await database.disconnect()
 })
 
 describe('register pix information use case', () => {

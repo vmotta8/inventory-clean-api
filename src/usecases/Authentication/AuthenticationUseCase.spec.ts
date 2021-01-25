@@ -1,11 +1,11 @@
-import { MongoHelper } from '../../database'
+import { database } from '../../database/index'
 import { TESTAuthenticationUseCase } from './index'
 import { TESTCreateUserUseCase } from '../CreateUser/index'
 import envs from '../../configs/envs.config'
 
 beforeAll(async () => {
-  await MongoHelper.connect(envs.MONGO_URL_TEST)
-  MongoHelper.clearCollection('users')
+  await database.connect(envs.MONGO_URL_TEST)
+  database.clearCollection('users')
 
   await TESTCreateUserUseCase.execute({
     name: 'Vinicius Motta',
@@ -15,7 +15,7 @@ beforeAll(async () => {
 })
 
 afterAll(async () => {
-  await MongoHelper.disconnect()
+  await database.disconnect()
 })
 
 describe('authentication use case', () => {

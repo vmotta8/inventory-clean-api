@@ -1,14 +1,14 @@
-import { MongoHelper } from '../../database'
+import { database } from '../../database/index'
 import { TESTGeneratePixStringUseCase } from './index'
 import envs from '../../configs/envs.config'
 
 beforeAll(async () => {
-  await MongoHelper.connect(envs.MONGO_URL_TEST)
-  MongoHelper.clearCollection('pixinformation')
+  await database.connect(envs.MONGO_URL_TEST)
+  database.clearCollection('pixinformation')
 })
 
 afterAll(async () => {
-  await MongoHelper.disconnect()
+  await database.disconnect()
 })
 
 describe('generate pix string use case', () => {

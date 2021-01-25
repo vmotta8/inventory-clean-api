@@ -11,14 +11,14 @@ export class UpdatePixInformationController {
     const { key, name, city } = request.body
 
     try {
-      await this.updatePixInformationUseCase.execute({
+      const newPixInformation = await this.updatePixInformationUseCase.execute({
         key,
         name,
         city,
         userId: request.userId
       })
 
-      return response.status(201).send()
+      return response.status(201).json(newPixInformation)
     } catch (err) {
       return response.status(400).json({ message: err.message || 'Unexpected error.' })
     }

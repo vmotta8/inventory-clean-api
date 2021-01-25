@@ -1,8 +1,8 @@
 /* eslint-disable no-useless-constructor */
-import { IPixInformationRepository } from '@/repositories/IPixInformationRepository'
-import { IGeneratePixStringDTO } from '@/usecases/GeneratePixString/GeneratePixStringDTO'
-import { crc16Helper } from '@/helpers/crc16Helper'
 import StaticPixConfig from '@/configs/staticpix.config'
+import { IGeneratePixStringDTO } from '@/usecases/GeneratePixString/GeneratePixStringDTO'
+import { IPixInformationRepository } from '@/repositories/IPixInformationRepository'
+import { crc16Helper } from '@/helpers/crc16Helper'
 
 export class GeneratePixStringUseCase {
   constructor (

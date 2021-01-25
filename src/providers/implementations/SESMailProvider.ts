@@ -1,7 +1,7 @@
 /* eslint-disable no-unreachable */
-import { IMailProvider, IMessage } from '@/providers/IMailProvider'
-import envs from '@/configs/envs.config'
 import AWS from 'aws-sdk'
+import envs from '@/configs/envs.config'
+import { IMailProvider, IMessage } from '@/providers/IMailProvider'
 
 AWS.config.update({
   accessKeyId: envs.AWS_ACCESS_KEY_ID,

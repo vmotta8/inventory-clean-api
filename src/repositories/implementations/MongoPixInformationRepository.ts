@@ -1,6 +1,6 @@
-import { IPixInformationRepository } from '@/repositories/IPixInformationRepository'
-import { PixInformation } from '@/entities/PixInformation'
 import { database } from '@/database'
+import { PixInformation } from '@/entities/PixInformation'
+import { IPixInformationRepository } from '@/repositories/IPixInformationRepository'
 
 export class MongoPixInformationRepository implements IPixInformationRepository {
   async findByUserId (userId: string): Promise<PixInformation> {

@@ -1,6 +1,6 @@
 /* eslint-disable no-useless-constructor */
-import { IPixInformationRepository } from '@/repositories/IPixInformationRepository'
 import { IUpdatePixInformationRequestDTO } from '@/usecases/UpdatePixInformation/UpdatePixInformationDTO'
+import { IPixInformationRepository } from '@/repositories/IPixInformationRepository'
 
 export class UpdatePixInformationUseCase {
   constructor (

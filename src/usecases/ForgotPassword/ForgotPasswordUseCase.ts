@@ -1,9 +1,9 @@
 /* eslint-disable no-useless-constructor */
+import envs from '@/configs/envs.config'
+import { IForgotPasswordDTO } from '@/usecases/ForgotPassword/ForgotPasswordDTO'
 import { IMailProvider } from '@/providers/IMailProvider'
 import { IUsersRepository } from '@/repositories/IUsersRepository'
 import { bcryptHelper } from '@/helpers/bcryptHelper'
-import { IForgotPasswordDTO } from '@/usecases/ForgotPassword/ForgotPasswordDTO'
-import envs from '@/configs/envs.config'
 
 export class ForgotPasswordUseCase {
   constructor (

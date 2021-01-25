@@ -1,6 +1,6 @@
 import { UpdateNameUseCase } from './UpdateUserUseCase'
 import { MongoUsersRepository } from '@/repositories/implementations/MongoUsersRepository'
-import { UpdateNameController } from '@/controllers/UpdateNameController'
+import { UpdateNameController } from '@/usecases/User/UpdateName/UpdateNameController'
 
 const updateNameUseCase = new UpdateNameUseCase(
   new MongoUsersRepository()

@@ -1,6 +1,6 @@
 import { AuthenticationUseCase } from './AuthenticationUseCase'
 import { MongoUsersRepository } from '@/repositories/implementations/MongoUsersRepository'
-import { AuthenticationController } from '@/controllers/AuthenticationController'
+import { AuthenticationController } from '@/usecases/User/Authentication/AuthenticationController'
 
 const mongoUsersRepository = new MongoUsersRepository()
 

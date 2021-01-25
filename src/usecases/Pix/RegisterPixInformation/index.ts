@@ -1,6 +1,6 @@
 import { RegisterPixInformationUseCase } from './RegisterPixInformationUseCase'
 import { MongoPixInformationRepository } from '@/repositories/implementations/MongoPixInformationRepository'
-import { RegisterPixInformationController } from '@/controllers/RegisterPixInformationController'
+import { RegisterPixInformationController } from '@/usecases/Pix/RegisterPixInformation/RegisterPixInformationController'
 
 const mongoPixInformationRepository = new MongoPixInformationRepository()
 

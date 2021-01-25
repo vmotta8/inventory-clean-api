@@ -1,6 +1,6 @@
 import { GeneratePixStringUseCase } from './GeneratePixStringUseCase'
 import { MongoPixInformationRepository } from '@/repositories/implementations/MongoPixInformationRepository'
-import { GeneratePixStringController } from '@/controllers/GeneratePixStringController'
+import { GeneratePixStringController } from '@/usecases/Pix/GeneratePixString/GeneratePixStringController'
 
 const mongoPixInformationRepository = new MongoPixInformationRepository()
 

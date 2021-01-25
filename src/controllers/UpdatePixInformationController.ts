@@ -1,6 +1,6 @@
 /* eslint-disable no-useless-constructor */
 import { Request, Response } from 'express'
-import { UpdatePixInformationUseCase } from '@/usecases/UpdatePixInformation/UpdatePixInformationUseCase'
+import { UpdatePixInformationUseCase } from '@/usecases/Pix/UpdatePixInformation/UpdatePixInformationUseCase'
 
 export class UpdatePixInformationController {
   constructor (

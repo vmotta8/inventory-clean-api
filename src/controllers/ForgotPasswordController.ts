@@ -1,6 +1,6 @@
 /* eslint-disable no-useless-constructor */
 import { Request, Response } from 'express'
-import { ForgotPasswordUseCase } from '@/usecases/ForgotPassword/ForgotPasswordUseCase'
+import { ForgotPasswordUseCase } from '@/usecases/User/ForgotPassword/ForgotPasswordUseCase'
 
 export class ForgotPasswordController {
   constructor (

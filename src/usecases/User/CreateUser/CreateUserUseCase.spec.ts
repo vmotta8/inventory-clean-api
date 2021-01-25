@@ -1,6 +1,6 @@
 import envs from '@/configs/envs.config'
 import { database } from '@/database'
-import { TESTCreateUserUseCase } from '@/usecases/CreateUser'
+import { TESTCreateUserUseCase } from '@/usecases/User/CreateUser'
 
 beforeAll(async () => {
   await database.connect(envs.MONGO_URL_TEST)

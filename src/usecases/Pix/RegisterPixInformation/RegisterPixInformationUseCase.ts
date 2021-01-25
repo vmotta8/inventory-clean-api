@@ -1,5 +1,5 @@
 /* eslint-disable no-useless-constructor */
-import { IRegisterPixInformationRequestDTO } from '@/usecases/RegisterPixInformation/RegisterPixInformationDTO'
+import { IRegisterPixInformationRequestDTO } from '@/usecases/Pix/RegisterPixInformation/RegisterPixInformationDTO'
 import { PixInformation } from '@/entities/PixInformation'
 import { IPixInformationRepository } from '@/repositories/IPixInformationRepository'
 

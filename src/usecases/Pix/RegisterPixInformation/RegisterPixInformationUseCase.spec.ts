@@ -1,6 +1,6 @@
 import envs from '@/configs/envs.config'
 import { database } from '@/database'
-import { TESTRegisterPixInformationUseCase } from '@/usecases/RegisterPixInformation'
+import { TESTRegisterPixInformationUseCase } from '@/usecases/Pix/RegisterPixInformation'
 
 beforeAll(async () => {
   await database.connect(envs.MONGO_URL_TEST)

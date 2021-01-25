@@ -1,5 +1,5 @@
 /* eslint-disable no-useless-constructor */
-import { IAuthenticationDTO } from '@/usecases/Authentication/AuthenticationDTO'
+import { IAuthenticationDTO } from '@/usecases/User/Authentication/AuthenticationDTO'
 import { IUsersRepository } from '@/repositories/IUsersRepository'
 import { bcryptHelper } from '@/helpers/bcryptHelper'
 import { jwtHelper } from '@/helpers/jwtHelper'

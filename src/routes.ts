@@ -1,11 +1,11 @@
 import { Router } from 'express'
 import AuthMiddleware from '@/middlewares/AuthMiddleware'
-import { createUserController } from '@/usecases/CreateUser'
-import { registerPixInformationController } from '@/usecases/RegisterPixInformation'
-import { forgotPasswordController } from '@/usecases/ForgotPassword'
-import { generatePixStringController } from '@/usecases/GeneratePixString'
-import { authenticationController } from '@/usecases/Authentication'
-import { updatePixInformationController } from '@/usecases/UpdatePixInformation'
+import { createUserController } from '@/usecases/User/CreateUser'
+import { registerPixInformationController } from '@/usecases/Pix/RegisterPixInformation'
+import { forgotPasswordController } from '@/usecases/User/ForgotPassword'
+import { generatePixStringController } from '@/usecases/Pix/GeneratePixString'
+import { authenticationController } from '@/usecases/User/Authentication'
+import { updatePixInformationController } from '@/usecases/Pix/UpdatePixInformation'
 
 const router = Router()
 

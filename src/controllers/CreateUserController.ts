@@ -1,6 +1,6 @@
 /* eslint-disable no-useless-constructor */
 import { Request, Response } from 'express'
-import { CreateUserUseCase } from '@/usecases/CreateUser/CreateUserUseCase'
+import { CreateUserUseCase } from '@/usecases/User/CreateUser/CreateUserUseCase'
 
 export class CreateUserController {
   constructor (

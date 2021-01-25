@@ -1,6 +1,6 @@
 /* eslint-disable no-useless-constructor */
 import envs from '@/configs/envs.config'
-import { ICreateUserRequestDTO } from '@/usecases/CreateUser/CreateUserDTO'
+import { ICreateUserRequestDTO } from '@/usecases/User/CreateUser/CreateUserDTO'
 import { User } from '@/entities/User'
 import { IUsersRepository } from '@/repositories/IUsersRepository'
 import { IMailProvider } from '@/providers/IMailProvider'

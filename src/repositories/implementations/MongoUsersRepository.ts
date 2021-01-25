@@ -15,9 +15,8 @@ export class MongoUsersRepository implements IUsersRepository {
     return result
   }
 
-  async updateByEmail (email: string, prop: string, data: string): Promise<void> {
+  async updateOne (query: object, prop: string, data: string): Promise<void> {
     const userCollection = database.getCollection('users')
-    const query = { email: email }
     const update = { $set: { [prop]: data } }
     await userCollection.updateOne(query, update)
   }

@@ -18,7 +18,7 @@ export class ForgotPasswordUseCase {
     const emailExists = await this.usersRepository.findByEmail(data.email)
 
     if (emailExists) {
-      await this.usersRepository.updateByEmail(data.email, 'password', newPasswordHash)
+      await this.usersRepository.updateOne({ email: data.email }, 'password', newPasswordHash)
     } else {
       throw new Error('User does not exist.')
     }

@@ -2,6 +2,7 @@
 import { IRegisterPixInformationRequestDTO } from '@/usecases/Pix/RegisterPixInformation/RegisterPixInformationDTO'
 import { PixInformation } from '@/entities/PixInformation'
 import { IPixInformationRepository } from '@/repositories/IPixInformationRepository'
+import { trimHelper } from '@/helpers/trimHelper'
 
 export class RegisterPixInformationUseCase {
   constructor (
@@ -19,9 +20,9 @@ export class RegisterPixInformationUseCase {
       }
     }
 
-    data.name = trimData(data.name)
-    data.key = trimData(data.key)
-    data.city = trimData(data.city)
+    data.name = trimHelper.oneSpace(data.name)
+    data.key = trimHelper.oneSpace(data.key)
+    data.city = trimHelper.oneSpace(data.city)
 
     const information = new PixInformation(data)
 
@@ -44,8 +45,4 @@ export class RegisterPixInformationUseCase {
 
     return information
   }
-}
-
-function trimData (data: string) {
-  return data.replace(/ +(?= )/g, '')
 }

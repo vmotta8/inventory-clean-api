@@ -1,6 +1,7 @@
 /* eslint-disable no-useless-constructor */
 import { IUpdatePixInformationRequestDTO } from '@/usecases/Pix/UpdatePixInformation/UpdatePixInformationDTO'
 import { IPixInformationRepository } from '@/repositories/IPixInformationRepository'
+import { trimHelper } from '@/helpers/trimHelper'
 
 export class UpdatePixInformationUseCase {
   constructor (
@@ -18,9 +19,9 @@ export class UpdatePixInformationUseCase {
       }
     }
 
-    data.name = trimData(data.name)
-    data.key = trimData(data.key)
-    data.city = trimData(data.city)
+    data.name = trimHelper.oneSpace(data.name)
+    data.key = trimHelper.oneSpace(data.key)
+    data.city = trimHelper.oneSpace(data.city)
 
     const userIdExists = await this.pixInformationRepository.findByUserId(data.userId)
     if (!userIdExists) {
@@ -51,8 +52,4 @@ export class UpdatePixInformationUseCase {
 
     return newPixInformation
   }
-}
-
-function trimData (data: string) {
-  return data.replace(/ +(?= )/g, '')
 }

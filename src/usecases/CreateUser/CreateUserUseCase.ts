@@ -1,11 +1,11 @@
 /* eslint-disable no-useless-constructor */
-import { User } from '../../entities/User'
-import { IMailProvider } from '../../providers/IMailProvider'
-import { IUsersRepository } from '../../repositories/IUsersRepository'
-import { bcryptHelper } from '../../helpers/bcryptHelper'
-import { ICreateUserRequestDTO } from './CreateUserDTO'
-import { jwtHelper } from '../../helpers/jwtHelper'
-import envs from '../../configs/envs.config'
+import { User } from '@/entities/User'
+import { IMailProvider } from '@/providers/IMailProvider'
+import { IUsersRepository } from '@/repositories/IUsersRepository'
+import { bcryptHelper } from '@/helpers/bcryptHelper'
+import { ICreateUserRequestDTO } from '@/usecases/CreateUser/CreateUserDTO'
+import { jwtHelper } from '@/helpers/jwtHelper'
+import envs from '@/configs/envs.config'
 
 export class CreateUserUseCase {
   constructor (

@@ -1,6 +1,6 @@
 /* eslint-disable no-useless-constructor */
 import { Request, Response } from 'express'
-import { AuthenticationUseCase } from '../usecases/Authentication/AuthenticationUseCase'
+import { AuthenticationUseCase } from '@/usecases/Authentication/AuthenticationUseCase'
 
 export class AuthenticationController {
   constructor (

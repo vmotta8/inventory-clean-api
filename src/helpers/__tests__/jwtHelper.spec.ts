@@ -1,4 +1,4 @@
-import { jwtHelper } from '../jwtHelper'
+import { jwtHelper } from '@/helpers/jwtHelper'
 
 function Equals (id: string, other: string): boolean {
   if (id === other) {

@@ -1,4 +1,4 @@
-import { emailValidator } from '../emailValidator'
+import { emailValidator } from '@/entities/validators/emailValidator'
 
 describe('email validation', () => {
   it('should not accept null strings', () => {

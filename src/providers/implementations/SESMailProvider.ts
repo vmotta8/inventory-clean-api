@@ -1,6 +1,6 @@
 /* eslint-disable no-unreachable */
-import { IMailProvider, IMessage } from '../IMailProvider'
-import envs from '../../configs/envs.config'
+import { IMailProvider, IMessage } from '@/providers/IMailProvider'
+import envs from '@/configs/envs.config'
 import AWS from 'aws-sdk'
 
 AWS.config.update({

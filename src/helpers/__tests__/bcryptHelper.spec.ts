@@ -1,4 +1,4 @@
-import { bcryptHelper } from '../bcryptHelper'
+import { bcryptHelper } from '@/helpers/bcryptHelper'
 
 function Equals (password: string, encrypted: string): boolean {
   if (password === encrypted) {

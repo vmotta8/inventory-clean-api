@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express'
-import { jwtHelper } from '../helpers/jwtHelper'
+import { jwtHelper } from '@/helpers/jwtHelper'
 
 interface TokenPayload {
   id: string

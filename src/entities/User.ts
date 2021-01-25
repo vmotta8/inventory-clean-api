@@ -1,7 +1,7 @@
-import { uuidHelper } from '../helpers/uuidHelper'
-import { emailValidator } from './validators/emailValidator'
-import { passwordValidator } from './validators/passwordValidator'
-import { nameValidator } from './validators/nameValidator'
+import { uuidHelper } from '@/helpers/uuidHelper'
+import { emailValidator } from '@/entities/validators/emailValidator'
+import { passwordValidator } from '@/entities/validators/passwordValidator'
+import { nameValidator } from '@/entities/validators/nameValidator'
 
 export class User {
   public readonly id: string;

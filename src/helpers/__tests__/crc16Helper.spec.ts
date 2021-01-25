@@ -1,4 +1,4 @@
-import { crc16Helper } from '../crc16Helper'
+import { crc16Helper } from '@/helpers/crc16Helper'
 
 describe('crc16 helper', () => {
   it('should return a string and right value', () => {

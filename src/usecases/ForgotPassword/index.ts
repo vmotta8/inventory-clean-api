@@ -1,8 +1,8 @@
-import { MongoUsersRepository } from '../../repositories/implementations/MongoUsersRepository'
-import { SESMailProvider } from '../../providers/implementations/SESMailProvider'
-import { InMemoryMailProvider } from '../../providers/implementations/InMemory/InMemoryMailProvider'
 import { ForgotPasswordUseCase } from './ForgotPasswordUseCase'
-import { ForgotPasswordController } from '../../controllers/ForgotPasswordController'
+import { MongoUsersRepository } from '@/repositories/implementations/MongoUsersRepository'
+import { SESMailProvider } from '@/providers/implementations/SESMailProvider'
+import { InMemoryMailProvider } from '@/providers/implementations/InMemory/InMemoryMailProvider'
+import { ForgotPasswordController } from '@/controllers/ForgotPasswordController'
 
 const mongoUsersRepository = new MongoUsersRepository()
 const sesMailProvider = new SESMailProvider()

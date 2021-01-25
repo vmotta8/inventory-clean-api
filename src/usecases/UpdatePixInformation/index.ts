@@ -1,6 +1,6 @@
-import { MongoPixInformationRepository } from '../../repositories/implementations/MongoPixInformationRepository'
 import { UpdatePixInformationUseCase } from './UpdatePixInformationUseCase'
-import { UpdatePixInformationController } from '../../controllers/UpdatePixInformationController'
+import { MongoPixInformationRepository } from '@/repositories/implementations/MongoPixInformationRepository'
+import { UpdatePixInformationController } from '@/controllers/UpdatePixInformationController'
 
 const mongoPixInformationRepository = new MongoPixInformationRepository()
 

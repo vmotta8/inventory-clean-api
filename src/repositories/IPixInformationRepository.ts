@@ -1,4 +1,4 @@
-import { PixInformation } from '../entities/PixInformation'
+import { PixInformation } from '@/entities/PixInformation'
 
 export interface IPixInformationRepository {
   findByUserId (userId: string): Promise<PixInformation>;

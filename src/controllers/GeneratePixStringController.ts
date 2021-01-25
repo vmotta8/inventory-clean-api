@@ -1,6 +1,6 @@
 /* eslint-disable no-useless-constructor */
 import { Request, Response } from 'express'
-import { GeneratePixStringUseCase } from '../usecases/GeneratePixString/GeneratePixStringUseCase'
+import { GeneratePixStringUseCase } from '@/usecases/GeneratePixString/GeneratePixStringUseCase'
 
 export class GeneratePixStringController {
   constructor (

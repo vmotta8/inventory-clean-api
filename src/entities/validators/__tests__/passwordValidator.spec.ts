@@ -1,4 +1,4 @@
-import { passwordValidator } from '../passwordValidator'
+import { passwordValidator } from '@/entities/validators/passwordValidator'
 
 describe('Password validator', () => {
   it('should return true for a valid password', () => {

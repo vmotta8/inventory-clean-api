@@ -1,4 +1,4 @@
-import { nameValidator } from '../nameValidator'
+import { nameValidator } from '@/entities/validators/nameValidator'
 
 describe('Name validator', () => {
   it('should return a error because name is invalid empty', () => {

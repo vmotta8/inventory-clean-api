@@ -5,21 +5,11 @@ import { TESTRegisterPixInformationUseCase } from '@/usecases/Pix/RegisterPixInf
 
 beforeAll(async () => {
   await database.connect(envs.MONGO_URL_TEST)
+})
+
+beforeEach(async () => {
   database.clearCollection('pixinformation')
-
-  await TESTRegisterPixInformationUseCase.execute({
-    name: 'Vinicius Motta',
-    key: 'viniciusmotta8@gmail.com',
-    city: 'Mogi Mirim',
-    userId: '123456'
-  })
-
-  await TESTRegisterPixInformationUseCase.execute({
-    name: 'User',
-    key: 'user@email.com',
-    city: 'Mogi Mirim',
-    userId: '1234'
-  })
+  database.clearCollection('users')
 })
 
 afterAll(async () => {
@@ -27,11 +17,11 @@ afterAll(async () => {
 })
 
 describe('update pix information use case', () => {
-  it('user did not register pix information', async () => {
+  it('should return an error if the user has not registered the information', async () => {
     try {
       await TESTUpdatePixInformationUseCase.execute({
-        name: 'Other',
-        key: 'other@email.com',
+        name: 'Vinicius Motta',
+        key: 'viniciusmotta8@gmail.com',
         city: 'Mogi Mirim',
         userId: '12345678'
       })
@@ -40,16 +30,63 @@ describe('update pix information use case', () => {
     }
   })
 
-  it('key already exists', async () => {
+  it('should return an error if the key already exists', async () => {
     try {
-      await TESTUpdatePixInformationUseCase.execute({
-        name: 'User',
+      await TESTRegisterPixInformationUseCase.execute({
+        name: 'Vinicius Motta',
         key: 'viniciusmotta8@gmail.com',
         city: 'Mogi Mirim',
-        userId: '1234'
+        userId: '12345678'
+      })
+
+      await TESTUpdatePixInformationUseCase.execute({
+        name: 'Vinicius Motta',
+        key: 'viniciusmotta8@email.com',
+        city: 'Mogi Mirim',
+        userId: '12345678'
       })
     } catch (error) {
       expect(error.message).toEqual('Key already exists.')
+    }
+  })
+
+  it('should return an error if any data is null', async () => {
+    try {
+      await TESTRegisterPixInformationUseCase.execute({
+        name: 'Vinicius Motta',
+        key: 'viniciusmotta8@gmail.com',
+        city: 'Mogi Mirim',
+        userId: '12345678'
+      })
+
+      await TESTUpdatePixInformationUseCase.execute({
+        name: 'Vinicius Motta',
+        key: 'viniciusmotta8@email.com',
+        city: null,
+        userId: '12345678'
+      })
+    } catch (error) {
+      expect(error.message).toEqual('Null or undefined is not accepted.')
+    }
+  })
+
+  it('should return an error if any data is undefined', async () => {
+    try {
+      await TESTRegisterPixInformationUseCase.execute({
+        name: 'Vinicius Motta',
+        key: 'viniciusmotta8@gmail.com',
+        city: 'Mogi Mirim',
+        userId: '12345678'
+      })
+
+      await TESTUpdatePixInformationUseCase.execute({
+        name: 'Vinicius Motta',
+        key: 'viniciusmotta8@email.com',
+        city: undefined,
+        userId: '12345678'
+      })
+    } catch (error) {
+      expect(error.message).toEqual('Null or undefined is not accepted.')
     }
   })
 })

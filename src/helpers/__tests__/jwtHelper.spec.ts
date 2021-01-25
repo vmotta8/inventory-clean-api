@@ -1,13 +1,5 @@
 import { jwtHelper } from '@/helpers/jwtHelper'
 
-function Equals (id: string, other: string): boolean {
-  if (id === other) {
-    return true
-  }
-
-  return false
-}
-
 interface TokenPayload {
   id: string
   iat: number
@@ -18,7 +10,7 @@ describe('jwt helper', () => {
   it('should return a string and equals return false', () => {
     const userId = '123456'
     const token = jwtHelper.generateToken(userId)
-    const equals = Equals(userId, token)
+    const equals = userId === token
     expect(typeof token).toBe('string')
     expect(equals).toBe(false)
   })
@@ -28,7 +20,7 @@ describe('jwt helper', () => {
     const token = jwtHelper.generateToken(userId)
     const decoded = jwtHelper.verifyToken(token)
     const { id } = decoded as TokenPayload
-    const equals = Equals(userId, id)
+    const equals = userId === id
     expect(typeof decoded).toBe('object')
     expect(equals).toBe(true)
   })

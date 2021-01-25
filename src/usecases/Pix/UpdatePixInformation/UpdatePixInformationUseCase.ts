@@ -8,6 +8,20 @@ export class UpdatePixInformationUseCase {
   ) {}
 
   async execute (data: IUpdatePixInformationRequestDTO) {
+    const newData = [
+      data.city, data.key, data.name, data.userId
+    ]
+
+    for (const item of newData) {
+      if (item === null || item === undefined || item === '') {
+        throw new Error('Null or undefined is not accepted.')
+      }
+    }
+
+    data.name = trimData(data.name)
+    data.key = trimData(data.key)
+    data.city = trimData(data.city)
+
     const userIdExists = await this.pixInformationRepository.findByUserId(data.userId)
     if (!userIdExists) {
       throw new Error('Register information first.')
@@ -18,25 +32,27 @@ export class UpdatePixInformationUseCase {
       throw new Error('Key already exists.')
     }
 
-    const newData = [
+    const formattedData = [
       { key: data.key }, { city: data.city }, { name: data.name }
     ]
 
-    for await (const item of newData) {
+    for await (const item of formattedData) {
       const response = Object.keys(item).map(function (key): object {
-        if ((item[key]).length !== 0) {
-          const objName = Object.getOwnPropertyNames(item)[0]
-          const objValue = item[key]
+        const objName = Object.getOwnPropertyNames(item)[0]
+        const objValue = item[key]
 
-          return [objName, objValue]
-        }
-
-        return []
+        return [objName, objValue]
       })
 
-      if (Object.keys(response[0]).length !== 0) {
-        await this.pixInformationRepository.updateByUserId(data.userId, response[0][0], response[0][1])
-      }
+      await this.pixInformationRepository.updateByUserId(data.userId, response[0][0], response[0][1])
     }
+
+    const newPixInformation = await this.pixInformationRepository.findByUserId(data.userId)
+
+    return newPixInformation
   }
+}
+
+function trimData (data: string) {
+  return data.replace(/ +(?= )/g, '')
 }

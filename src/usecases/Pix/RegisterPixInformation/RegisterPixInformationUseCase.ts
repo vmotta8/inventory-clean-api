@@ -9,6 +9,20 @@ export class RegisterPixInformationUseCase {
   ) {}
 
   async execute (data: IRegisterPixInformationRequestDTO) {
+    const newData = [
+      data.city, data.key, data.name, data.userId
+    ]
+
+    for (const item of newData) {
+      if (item === null || item === undefined || item === '') {
+        throw new Error('Null or undefined is not accepted.')
+      }
+    }
+
+    data.name = trimData(data.name)
+    data.key = trimData(data.key)
+    data.city = trimData(data.city)
+
     const information = new PixInformation(data)
 
     const idAlreadyExists = await this.pixInformationRepository.findById(information.id)
@@ -30,4 +44,8 @@ export class RegisterPixInformationUseCase {
 
     return information
   }
+}
+
+function trimData (data: string) {
+  return data.replace(/ +(?= )/g, '')
 }

@@ -13,13 +13,17 @@ git clone https://github.com/vmotta8/inventory-clean-api.git
 
 Install dependencies
 ```
-inventory-control % npm install
+inventory-control % yarn
 ```
 
 Complete the .env file
 ```
 SECRET_MD5=
 MONGO_URL=
+MONGO_URL_TEST=
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+EMAIL=Name <email>
 ```
 
 ## Routes

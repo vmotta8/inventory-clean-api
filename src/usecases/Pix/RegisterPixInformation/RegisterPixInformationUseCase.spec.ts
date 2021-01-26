@@ -31,6 +31,8 @@ describe('register pix information use case', () => {
         city: 'Mogi Mirim',
         userId: '12345678'
       })
+
+      expect(1).toBe(0)
     } catch (error) {
       expect(error.message).toEqual('Key already exists.')
     }
@@ -51,6 +53,8 @@ describe('register pix information use case', () => {
         city: 'Mogi Mirim',
         userId: '123456'
       })
+
+      expect(1).toBe(0)
     } catch (error) {
       expect(error.message).toEqual('User id already exists.')
     }
@@ -64,6 +68,8 @@ describe('register pix information use case', () => {
         city: null,
         userId: '123456'
       })
+
+      expect(1).toBe(0)
     } catch (error) {
       expect(error.message).toEqual('Null or undefined is not accepted.')
     }
@@ -77,6 +83,8 @@ describe('register pix information use case', () => {
         city: undefined,
         userId: '123456'
       })
+
+      expect(1).toBe(0)
     } catch (error) {
       expect(error.message).toEqual('Null or undefined is not accepted.')
     }

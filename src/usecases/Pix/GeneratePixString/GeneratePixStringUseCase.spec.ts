@@ -24,6 +24,8 @@ describe('generate pix string use case', () => {
         value: 10.5,
         userId: '123456'
       })
+
+      expect(1).toBe(0)
     } catch (error) {
       expect(error.message).toEqual('You must register your pix information first.')
     }

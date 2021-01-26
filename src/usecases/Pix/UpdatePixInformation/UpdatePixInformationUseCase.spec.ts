@@ -25,6 +25,8 @@ describe('update pix information use case', () => {
         city: 'Mogi Mirim',
         userId: '12345678'
       })
+
+      expect(1).toBe(0)
     } catch (error) {
       expect(error.message).toEqual('Register information first.')
     }
@@ -39,12 +41,21 @@ describe('update pix information use case', () => {
         userId: '12345678'
       })
 
+      await TESTRegisterPixInformationUseCase.execute({
+        name: 'User',
+        key: 'user@email.com',
+        city: 'Mogi Mirim',
+        userId: '123456'
+      })
+
       await TESTUpdatePixInformationUseCase.execute({
         name: 'Vinicius Motta',
-        key: 'viniciusmotta8@email.com',
+        key: 'user@email.com',
         city: 'Mogi Mirim',
         userId: '12345678'
       })
+
+      expect(1).toBe(0)
     } catch (error) {
       expect(error.message).toEqual('Key already exists.')
     }
@@ -65,6 +76,8 @@ describe('update pix information use case', () => {
         city: null,
         userId: '12345678'
       })
+
+      expect(1).toBe(0)
     } catch (error) {
       expect(error.message).toEqual('Null or undefined is not accepted.')
     }
@@ -85,6 +98,8 @@ describe('update pix information use case', () => {
         city: undefined,
         userId: '12345678'
       })
+
+      expect(1).toBe(0)
     } catch (error) {
       expect(error.message).toEqual('Null or undefined is not accepted.')
     }

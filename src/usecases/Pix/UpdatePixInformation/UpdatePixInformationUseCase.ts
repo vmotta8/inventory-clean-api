@@ -12,18 +12,18 @@ export class UpdatePixInformationUseCase {
     // eslint-disable-next-line no-unused-vars
     const information = new PixInformation(data)
 
-    const userIdExists = await this.pixInformationRepository.findByUserId(data.userId)
+    const userIdExists = await this.pixInformationRepository.findByUserId(information.userId)
     if (!userIdExists) {
       throw new Error('Register information first.')
     }
 
-    const keyExists = await this.pixInformationRepository.findByKey(data.key)
+    const keyExists = await this.pixInformationRepository.findByKey(information.key)
     if (keyExists && keyExists.key !== userIdExists.key) {
       throw new Error('Key already exists.')
     }
 
     const formattedData = [
-      { key: data.key }, { city: data.city }, { name: data.name }
+      { key: information.key }, { city: information.city }, { name: information.name }
     ]
 
     for await (const item of formattedData) {

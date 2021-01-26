@@ -13,6 +13,18 @@ describe('Password validator', () => {
     expect(valid).toBe(false)
   })
 
+  it('should return an error because password is null', () => {
+    const password = null
+    const valid = passwordValidator(password)
+    expect(valid).toBe(false)
+  })
+
+  it('should return an error because password is undefined', () => {
+    const password = undefined
+    const valid = passwordValidator(password)
+    expect(valid).toBe(false)
+  })
+
   it('should return an error because the password is less than 6 digits', () => {
     const password = '12345'
     const valid = passwordValidator(password)

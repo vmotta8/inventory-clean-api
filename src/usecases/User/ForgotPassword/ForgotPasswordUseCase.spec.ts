@@ -4,6 +4,10 @@ import { TESTForgotPasswordUseCase } from '@/usecases/User/ForgotPassword'
 
 beforeAll(async () => {
   await database.connect(envs.MONGO_URL_TEST)
+})
+
+beforeEach(async () => {
+  database.clearCollection('pixinformation')
   database.clearCollection('users')
 })
 
@@ -12,11 +16,13 @@ afterAll(async () => {
 })
 
 describe('forgot password use case', () => {
-  it('user does not exist', async () => {
+  it('should return an error if email does not exist', async () => {
     try {
       await TESTForgotPasswordUseCase.execute({
         email: 'viniciusmotta8@gmail.com'
       })
+
+      expect(1).toBe(0)
     } catch (error) {
       expect(error.message).toEqual('User does not exist.')
     }

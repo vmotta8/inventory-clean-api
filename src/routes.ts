@@ -1,6 +1,6 @@
 import { Router } from 'express'
 import AuthMiddleware from '@/middlewares/AuthMiddleware'
-import { createUserController, authenticationController, forgotPasswordController, updateNameController } from '@/usecases/User'
+import { createUserController, authenticationController, forgotPasswordController, updateNameController, changePasswordController } from '@/usecases/User'
 import { registerPixInformationController, generatePixStringController, updatePixInformationController } from '@/usecases/Pix'
 
 const router = Router()
@@ -11,6 +11,10 @@ router.post('/users/register', (req, res) => {
 
 router.post('/users/update-name', (req, res) => {
   return updateNameController.handle(req, res)
+})
+
+router.post('/users/change-password', (req, res) => {
+  return changePasswordController.handle(req, res)
 })
 
 router.get('/users/authentication', (req, res) => {

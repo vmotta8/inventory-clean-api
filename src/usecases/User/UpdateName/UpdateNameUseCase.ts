@@ -19,5 +19,10 @@ export class UpdateNameUseCase {
     }
 
     await this.usersRepository.updateOne({ id: data.userId }, 'name', data.name)
+
+    const updatedUser = await this.usersRepository.findById(data.userId)
+    delete updatedUser.password
+
+    return updatedUser
   }
 }

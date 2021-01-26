@@ -1,4 +1,4 @@
-import { UpdateNameUseCase } from './UpdateUserUseCase'
+import { UpdateNameUseCase } from './UpdateNameUseCase'
 import { MongoUsersRepository } from '@/repositories/implementations/MongoUsersRepository'
 import { UpdateNameController } from '@/usecases/User/UpdateName/UpdateNameController'
 

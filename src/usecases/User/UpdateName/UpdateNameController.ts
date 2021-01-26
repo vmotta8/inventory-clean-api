@@ -1,6 +1,6 @@
 /* eslint-disable no-useless-constructor */
 import { Request, Response } from 'express'
-import { UpdateNameUseCase } from '@/usecases/User/UpdateName/UpdateUserUseCase'
+import { UpdateNameUseCase } from '@/usecases/User/UpdateName/UpdateNameUseCase'
 
 export class UpdateNameController {
   constructor (
@@ -11,12 +11,12 @@ export class UpdateNameController {
     const { name } = request.body
 
     try {
-      await this.updateNameUseCase.execute({
+      const updatedUser = await this.updateNameUseCase.execute({
         name,
         userId: request.userId
       })
 
-      return response.status(201).send()
+      return response.status(201).json(updatedUser)
     } catch (err) {
       return response.status(400).json({ message: err.message || 'Unexpected error.' })
     }

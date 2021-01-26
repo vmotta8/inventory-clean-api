@@ -11,12 +11,12 @@ export class ChangePasswordController {
     const { password } = request.body
 
     try {
-      await this.changePasswordUseCase.execute({
+      const updatedUser = await this.changePasswordUseCase.execute({
         password,
         userId: request.userId
       })
 
-      return response.status(201).send()
+      return response.status(201).json(updatedUser)
     } catch (err) {
       return response.status(400).json({ message: err.message || 'Unexpected error.' })
     }

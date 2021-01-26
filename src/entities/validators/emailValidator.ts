@@ -1,6 +1,6 @@
 /* eslint-disable no-useless-escape */
 export function emailValidator (email: string): boolean {
-  if (!email) {
+  if (email === null || email === undefined) {
     return false
   }
 

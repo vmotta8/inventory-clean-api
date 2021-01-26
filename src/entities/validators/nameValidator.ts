@@ -1,5 +1,5 @@
 export function nameValidator (name: string): boolean {
-  if (!name) {
+  if (name === null || name === undefined) {
     return false
   }
 

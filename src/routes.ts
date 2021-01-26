@@ -9,11 +9,11 @@ router.post('/users/register', (req, res) => {
   return createUserController.handle(req, res)
 })
 
-router.post('/users/update-name', (req, res) => {
+router.post('/users/update-name', AuthMiddleware, (req, res) => {
   return updateNameController.handle(req, res)
 })
 
-router.post('/users/change-password', (req, res) => {
+router.post('/users/change-password', AuthMiddleware, (req, res) => {
   return changePasswordController.handle(req, res)
 })
 
@@ -21,7 +21,7 @@ router.get('/users/authentication', (req, res) => {
   return authenticationController.handle(req, res)
 })
 
-router.post('/users/forgot_password', (req, res) => {
+router.post('/users/forgot-password', (req, res) => {
   return forgotPasswordController.handle(req, res)
 })
 
@@ -33,7 +33,7 @@ router.post('/pix/update', AuthMiddleware, (req, res) => {
   return updatePixInformationController.handle(req, res)
 })
 
-router.get('/pix/generate_string', AuthMiddleware, (req, res) => {
+router.get('/pix/generate-string', AuthMiddleware, (req, res) => {
   return generatePixStringController.handle(req, res)
 })
 

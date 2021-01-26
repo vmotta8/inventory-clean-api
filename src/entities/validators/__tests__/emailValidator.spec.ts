@@ -16,6 +16,16 @@ describe('email validation', () => {
     expect(emailValidator(email)).toBeFalsy()
   })
 
+  it('should not accept null strings', () => {
+    const email: string = null
+    expect(emailValidator(email)).toBeFalsy()
+  })
+
+  it('should not accept undefined strings', () => {
+    const email: string = undefined
+    expect(emailValidator(email)).toBeFalsy()
+  })
+
   it('should accept valid email', () => {
     const email: string = 'myname@email.com'
     expect(emailValidator(email)).toBeTruthy()

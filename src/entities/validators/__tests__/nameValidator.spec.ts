@@ -18,6 +18,18 @@ describe('Name validator', () => {
     expect(valid).toBe(false)
   })
 
+  it('should not create user with invalid name null', () => {
+    const name = null
+    const valid = nameValidator(name)
+    expect(valid).toBe(false)
+  })
+
+  it('should not create user with invalid name undefined', () => {
+    const name = undefined
+    const valid = nameValidator(name)
+    expect(valid).toBe(false)
+  })
+
   it('should return true when name is valid 1', () => {
     const name = 'My    Name'
     const valid = nameValidator(name)

@@ -1,3 +1,4 @@
+import { trimHelper } from '@/helpers/trimHelper'
 import { uuidHelper } from '@/helpers/uuidHelper'
 
 export class PixInformation {
@@ -10,6 +11,9 @@ export class PixInformation {
 
   constructor (props: Omit<PixInformation, 'id'>) {
     this.id = uuidHelper.create()
-    Object.assign(this, props)
+    this.name = trimHelper.oneSpace(props.name)
+    this.key = trimHelper.oneSpace(props.key)
+    this.city = trimHelper.oneSpace(props.city)
+    this.userId = props.userId
   }
 }

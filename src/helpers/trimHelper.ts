@@ -1,5 +1,9 @@
 export const trimHelper = {
-  oneSpace (data: string): string {
-    return (data.replace(/ +(?= )/g, '')).trim()
+  oneSpace (item: string): string {
+    if (item === null || item === undefined || item === '') {
+      throw new Error('Null or undefined is not accepted.')
+    }
+
+    return (item.replace(/ +(?= )/g, '')).trim()
   }
 }

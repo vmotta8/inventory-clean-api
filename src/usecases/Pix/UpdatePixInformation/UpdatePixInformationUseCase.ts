@@ -1,7 +1,7 @@
 /* eslint-disable no-useless-constructor */
 import { IUpdatePixInformationRequestDTO } from '@/usecases/Pix/UpdatePixInformation/UpdatePixInformationDTO'
 import { IPixInformationRepository } from '@/repositories/IPixInformationRepository'
-import { trimHelper } from '@/helpers/trimHelper'
+import { PixInformation } from '@/entities/PixInformation'
 
 export class UpdatePixInformationUseCase {
   constructor (
@@ -9,19 +9,8 @@ export class UpdatePixInformationUseCase {
   ) {}
 
   async execute (data: IUpdatePixInformationRequestDTO) {
-    const newData = [
-      data.city, data.key, data.name, data.userId
-    ]
-
-    for (const item of newData) {
-      if (item === null || item === undefined || item === '') {
-        throw new Error('Null or undefined is not accepted.')
-      }
-    }
-
-    data.name = trimHelper.oneSpace(data.name)
-    data.key = trimHelper.oneSpace(data.key)
-    data.city = trimHelper.oneSpace(data.city)
+    // eslint-disable-next-line no-unused-vars
+    const information = new PixInformation(data)
 
     const userIdExists = await this.pixInformationRepository.findByUserId(data.userId)
     if (!userIdExists) {

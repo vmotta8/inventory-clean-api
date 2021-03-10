@@ -45,6 +45,18 @@ EMAIL=Name <email>
       email: 'myemail@email.com'
       }```
 
+  - ```/users/update-name``` POST
+    - Bearer Token will be required
+    - Route to update name: ```{
+      name: 'new name'
+      }```
+
+  - ```/users/change-password``` POST
+    - Bearer Token will be required
+    - Route to change password: ```{
+      password: 'new password'
+      }```
+
   - ```/pix/register``` POST
     - Bearer Token will be required
     - Route to save pix information: ```{
